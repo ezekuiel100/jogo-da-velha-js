@@ -19,19 +19,24 @@ let jogadorAtual = "X";
 
 function jogar() {
   cells.forEach((cell) => {
-    cell.addEventListener("click", () => {
-      let index = cell.getAttribute("index");
+    cell.addEventListener(
+      "click",
+      () => {
+        let index = cell.getAttribute("index");
 
-      if (cell.textContent == "" && jogando) {
-        cell.textContent = jogadorAtual;
-        jogadas[index] = jogadorAtual;
-        jogadorAtual = jogadorAtual === "X" ? "O" : "X";
-      }
+        console.log("click");
+        if (cell.textContent == "" && jogando) {
+          cell.textContent = jogadorAtual;
+          jogadas[index] = jogadorAtual;
+          jogadorAtual = jogadorAtual === "X" ? "O" : "X";
+        }
 
-      jogador.textContent = `Jogador atual ${jogadorAtual}`;
+        jogador.textContent = `Jogador atual ${jogadorAtual}`;
 
-      ganhador();
-    });
+        ganhador();
+      },
+      { once: true }
+    );
   });
 }
 
