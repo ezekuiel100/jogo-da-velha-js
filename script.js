@@ -49,7 +49,7 @@ function ganhador() {
       if (cellA == cellB && cellB == cellC) {
         console.log("vencedor");
         jogando = false;
-        break;
+        return;
       }
     }
   }
